@@ -9,13 +9,27 @@
 
 <!-- ===== 1. Стартовый экран ===== -->
 <div id="startScreen" class="screen active" style="background-image: url('./Backgrond.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
-    <h1> išlaikysi</h1>
-    <select id="languageSelect">
-        <option value="RU">RU</option>
-        <option value="LT">LT</option>
-        <option value="EN">EN</option>
-    </select>
-    <button onclick="goToNameScreen()">→</button>
+    <div class="lang-switch">
+        <button class="lang-btn active" onclick="setLanguage('LT')">LT</button>
+        <button class="lang-btn" onclick="setLanguage('RU')">RU</button>
+        <button class="lang-btn" onclick="setLanguage('EN')">EN</button>
+    </div>
+
+    <div class="card">
+        <div class="flag">🇱🇹</div>
+        <h1 class="app-title">КОНСТЛТ</h1>
+        <h2 class="subtitle">Введите ваше имя</h2>
+        <p class="hint">Пожалуйста, введите свое имя.</p>
+        <input type="text" id="userName" class="input" placeholder="Имя пользователя" />
+        <button class="btn btn-primary btn-block" onclick="goToMenu()">Начать обучение</button>
+
+        <div class="bottom-nav">
+            <div class="item">🏠 Home</div>
+            <div class="item">👤 Profile</div>
+            <div class="item">📊 Leaderboard</div>
+            <div class="item">⚙️ Settings</div>
+        </div>
+    </div>
 </div>
 
 <!-- ===== 2. Экран ввода имени ===== -->
@@ -28,10 +42,28 @@
 
 <!-- ===== 3. Экран меню ===== -->
 <div id="menuScreen" class="screen">
-    <h2 id="welcomeText"></h2>
-    <button onclick="showConstitution()">Текст конституции</button>
-    <button onclick="showLessons()">Уроки</button>
-    <button onclick="showGame()">Игра</button>
+    <div class="lang-switch">
+        <button class="lang-btn active" onclick="setLanguage('LT')">LT</button>
+        <button class="lang-btn" onclick="setLanguage('RU')">RU</button>
+        <button class="lang-btn" onclick="setLanguage('EN')">EN</button>
+    </div>
+
+    <div class="card">
+        <div class="flag">🇱🇹</div>
+        <h1 class="app-title">КОНСТЛТ</h1>
+        <h2 class="subtitle" id="welcomeText"></h2>
+
+        <button class="btn btn-primary btn-block" onclick="showConstitution()">📖  Текст конституции</button>
+        <button class="btn btn-primary btn-block" onclick="showLessons()">💡  Уроки</button>
+        <button class="btn btn-primary btn-block" onclick="showGame()">🎮  Игра</button>
+
+        <div class="bottom-nav">
+            <div class="item">🏠 Home</div>
+            <div class="item">👤 Profile</div>
+            <div class="item">📊 Leaderboard</div>
+            <div class="item">⚙️ Settings</div>
+        </div>
+    </div>
 </div>
 
 <!-- ===== 4. Экран уроков ===== -->

@@ -84,3 +84,14 @@ window.showGame = showGame;
 window.goBackToMenu = goBackToMenu;
 window.goBackToLessons = goBackToLessons;
 window.showLesson = showLesson;
+window.setLanguage = function setLanguage(lang) {
+  // Toggle active state on language buttons (placeholder for future i18n)
+  document.querySelectorAll('.lang-btn').forEach((b) => b.classList.remove('active'));
+  const mapping = { LT: 0, RU: 1, EN: 2 };
+  const btns = document.querySelectorAll('.lang-btn');
+  if (btns.length) {
+    const idx = mapping[lang];
+    if (idx !== undefined && btns[idx]) btns[idx].classList.add('active');
+  }
+  document.documentElement.setAttribute('data-lang', lang);
+};
