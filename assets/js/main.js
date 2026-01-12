@@ -95,3 +95,35 @@ window.setLanguage = function setLanguage(lang) {
   }
   document.documentElement.setAttribute('data-lang', lang);
 };
+
+// Splash screen init and controls
+function skipSplash() {
+  showScreen('startScreen');
+}
+
+window.skipSplash = skipSplash;
+
+document.addEventListener('DOMContentLoaded', () => {
+  const splash = document.getElementById('splashScreen');
+  if (splash) {
+    const img = document.getElementById('knightImg');
+    const emoji = document.getElementById('knightEmoji');
+    if (img) {
+      img.addEventListener('error', () => {
+        if (emoji) emoji.style.display = 'block';
+        img.style.display = 'none';
+      });
+      // Show emoji until image loads
+      if (emoji) emoji.style.display = 'block';
+      img.addEventListener('load', () => {
+        if (emoji) emoji.style.display = 'none';
+        img.style.display = 'block';
+      });
+    }
+    // Auto skip after a short delay
+    setTimeout(() => {
+      // Only switch if still on splash
+      if (splash.classList.contains('active')) skipSplash();
+    }, 3000);
+  }
+});

@@ -7,8 +7,23 @@
 </head>
 <body>
 
+<!-- ===== 0. Экран заставки ===== -->
+<div id="splashScreen" class="screen active" style="background-image: url('./Backgrond.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+    <div class="splash-wrapper">
+        <div class="splash-card card">
+            <div class="flag">🇱🇹</div>
+            <h1 class="app-title">КОНСТЛТ</h1>
+            <div class="ride-stage">
+                <img id="knightImg" class="knight" src="assets/knight.png" alt="Рыцарь на лошади" />
+                <div id="knightEmoji" class="knight-emoji" aria-hidden="true">🏇</div>
+            </div>
+            <button class="btn btn-primary" onclick="skipSplash()">Пропустить</button>
+        </div>
+    </div>
+  </div>
+
 <!-- ===== 1. Стартовый экран ===== -->
-<div id="startScreen" class="screen active" style="background-image: url('./Backgrond.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
+<div id="startScreen" class="screen" style="background-image: url('./Backgrond.png'); background-size: cover; background-position: center; background-repeat: no-repeat;">
     <div class="lang-switch">
         <button class="lang-btn active" onclick="setLanguage('LT')">LT</button>
         <button class="lang-btn" onclick="setLanguage('RU')">RU</button>

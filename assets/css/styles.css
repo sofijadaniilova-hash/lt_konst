@@ -138,6 +138,17 @@ body {
   background: #ecfdf5;
 }
 
+/* Splash screen */
+.splash-wrapper { width: 100%; display: grid; place-items: center; }
+.splash-card { text-align: center; }
+.ride-stage { position: relative; width: min(90vw, 520px); height: 220px; margin: 6px auto 14px; overflow: hidden; }
+.knight, .knight-emoji { position: absolute; left: -30%; bottom: 6px; font-size: 72px; display: none; }
+.knight { height: 180px; width: auto; display: block; animation: ride 3.2s linear infinite, bob 0.9s ease-in-out infinite alternate; }
+.knight-emoji { display: none; animation: ride 3s linear infinite, bob 0.9s ease-in-out infinite alternate; }
+
+@keyframes ride { from { transform: translateX(-30%); } to { transform: translateX(130%); } }
+@keyframes bob { from { transform: translateY(0); } to { transform: translateY(-6px); } }
+
 
 h1 {
   font-size: 48px;
