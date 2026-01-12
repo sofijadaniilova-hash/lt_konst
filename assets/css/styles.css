@@ -19,6 +19,13 @@ body {
   display: flex;
 }
 
+/* Background image for start screen */
+#startScreen {
+  background-image: url('../Backgrond.png');
+  background-size: cover;
+  background-position: center;
+}
+
 h1 {
   font-size: 48px;
   color: #1e90ff;
