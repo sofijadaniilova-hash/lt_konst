@@ -21,9 +21,10 @@ body {
 
 /* Background image for start screen */
 #startScreen {
-  background-image: url('../Backgrond.png');
+  background-image: url('/assets/Backgrond.png');
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
 }
 
 h1 {
