@@ -50,3 +50,28 @@ select {
   padding: 5px;
   font-size: 16px;
 }
+
+/* Lessons list styling */
+#lessonsList {
+  list-style: none;
+  padding: 0;
+  margin: 16px 0 24px;
+  max-width: 400px;
+  width: 100%;
+  text-align: left;
+}
+
+#lessonsList li {
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background: #fff;
+  transition: background 0.15s ease-in-out;
+}
+
+#lessonsList li:hover,
+#lessonsList li:focus {
+  background: #f3f9ff;
+  outline: none;
+}
