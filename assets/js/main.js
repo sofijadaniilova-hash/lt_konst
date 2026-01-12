@@ -1,6 +1,11 @@
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach((el) => el.classList.remove('active'));
+  const target = document.getElementById(id);
+  if (target) target.classList.add('active');
+}
+
 function goToNameScreen() {
-  document.getElementById('startScreen').classList.remove('active');
-  document.getElementById('nameScreen').classList.add('active');
+  showScreen('nameScreen');
 }
 
 function goToMenu() {
@@ -9,8 +14,7 @@ function goToMenu() {
     alert('Пожалуйста, введите имя!');
     return;
   }
-  document.getElementById('nameScreen').classList.remove('active');
-  document.getElementById('menuScreen').classList.add('active');
+  showScreen('menuScreen');
   document.getElementById('welcomeText').textContent = `Привет, ${name}!`;
 }
 
@@ -19,7 +23,20 @@ function showConstitution() {
 }
 
 function showLessons() {
-  alert('Здесь будут уроки по Конституции Литвы...');
+  const list = document.getElementById('lessonsList');
+  if (list) {
+    list.innerHTML = '';
+    for (let i = 1; i <= 18; i += 1) {
+      const li = document.createElement('li');
+      li.textContent = `Урок ${i}`;
+      list.appendChild(li);
+    }
+  }
+  showScreen('lessonsScreen');
+}
+
+function goBackToMenu() {
+  showScreen('menuScreen');
 }
 
 function showGame() {
@@ -32,3 +49,4 @@ window.goToMenu = goToMenu;
 window.showConstitution = showConstitution;
 window.showLessons = showLessons;
 window.showGame = showGame;
+window.goBackToMenu = goBackToMenu;
