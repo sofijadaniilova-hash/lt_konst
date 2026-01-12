@@ -142,12 +142,18 @@ body {
 .splash-wrapper { width: 100%; display: grid; place-items: center; }
 .splash-card { text-align: center; }
 .ride-stage { position: relative; width: min(90vw, 520px); height: 220px; margin: 6px auto 14px; overflow: hidden; }
-.knight, .knight-emoji { position: absolute; left: -30%; bottom: 6px; font-size: 72px; display: none; }
-.knight { height: 180px; width: auto; display: block; animation: ride 3.2s linear infinite, bob 0.9s ease-in-out infinite alternate; }
-.knight-emoji { display: none; animation: ride 3s linear infinite, bob 0.9s ease-in-out infinite alternate; }
+.knight, .knight-emoji { position: absolute; left: 0; bottom: 6px; font-size: 72px; display: none; }
+.knight { height: 180px; width: auto; display: block; animation: rideBob 3.2s linear infinite; }
+.knight-emoji { display: none; animation: rideBob 3s linear infinite; }
 
-@keyframes ride { from { transform: translateX(-30%); } to { transform: translateX(130%); } }
-@keyframes bob { from { transform: translateY(0); } to { transform: translateY(-6px); } }
+@keyframes rideBob {
+  0%   { transform: translateX(-30%) translateY(0); }
+  20%  { transform: translateX(-10%) translateY(-4px); }
+  40%  { transform: translateX(20%) translateY(0); }
+  60%  { transform: translateX(50%) translateY(-6px); }
+  80%  { transform: translateX(90%) translateY(0); }
+  100% { transform: translateX(130%) translateY(-2px); }
+}
 
 
 h1 {
