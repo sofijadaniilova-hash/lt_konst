@@ -9,10 +9,9 @@ function goToNameScreen() {
 }
 
 function goToMenu() {
-  const name = document.getElementById('userName').value.trim();
+  let name = document.getElementById('userName').value.trim();
   if (name === '') {
-    alert('Пожалуйста, введите имя!');
-    return;
+    name = 'Гость';
   }
   showScreen('menuScreen');
   document.getElementById('welcomeText').textContent = `Привет, ${name}!`;
