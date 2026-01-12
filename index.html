@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>КонстЛТ</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+        }
+
+        .screen {
+            display: none;
+            height: 100vh;
+            width: 100%;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .active {
+            display: flex;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #1e90ff;
+        }
+
+        label {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            font-size: 18px;
+            width: 250px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 20px;
+            margin: 10px;
+            cursor: pointer;
+        }
+
+        select {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            padding: 5px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+<!-- ===== 1. Стартовый экран ===== -->
+<div id="startScreen" class="screen active">
+    <h1>КонстЛТ</h1>
+    <select id="languageSelect">
+        <option value="RU">RU</option>
+        <option value="LT">LT</option>
+        <option value="EN">EN</option>
+    </select>
+    <button onclick="goToNameScreen()">→</button>
+</div>
+
+<!-- ===== 2. Экран ввода имени ===== -->
+<div id="nameScreen" class="screen">
+    <label for="userName">Введите Ваше имя:</label>
+    <input type="text" id="userName" placeholder="Ваше имя">
+    <br>
+    <button onclick="goToMenu()">Продолжить</button>
+</div>
+
+<!-- ===== 3. Экран меню ===== -->
+<div id="menuScreen" class="screen">
+    <h2 id="welcomeText"></h2>
+    <button onclick="showConstitution()">Текст конституции</button>
+    <button onclick="showLessons()">Уроки</button>
+    <button onclick="showGame()">Игра</button>
+</div>
+
+<script>
+    // Переход к экрану ввода имени
+    function goToNameScreen() {
+        document.getElementById('startScreen').classList.remove('active');
+        document.getElementById('nameScreen').classList.add('active');
+    }
+
+    // Переход к экрану меню
+    function goToMenu() {
+        const name = document.getElementById('userName').value.trim();
+        if (name === "") {
+            alert("Пожалуйста, введите имя!");
+            return;
+        }
+        document.getElementById('nameScreen').classList.remove('active');
+        document.getElementById('menuScreen').classList.add('active');
+        document.getElementById('welcomeText').textContent = `Привет, ${name}!`;
+    }
+
+    // ===== Заглушки для кнопок меню =====
+    function showConstitution() {
+        alert("Здесь будет текст Конституции Литвы....");
+    }
+
+    function showLessons() {
+        alert("Здесь будут уроки по Конституции Литвы...");
+    }
+
+    function showGame() {
+        alert("Здесь будет игра для изучения Конституции...");
+    }
+</script>
+
+</body>
+</html>
