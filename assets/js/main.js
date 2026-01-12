@@ -19,7 +19,12 @@ function goToMenu() {
 }
 
 function showConstitution() {
-  alert('Здесь будет текст Конституции Литвы....');
+  // Ensure viewer points to the PDF (in case of future localization)
+  const viewer = document.getElementById('constitutionViewer');
+  if (viewer && !viewer.src.includes('WholetextRU.pdf')) {
+    viewer.src = 'assets/WholetextRU.pdf';
+  }
+  showScreen('constitutionScreen');
 }
 
 function showLessons() {
